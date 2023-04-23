@@ -14,6 +14,7 @@
 		A76E4EC829F5A6FF00315552 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A76E4EC729F5A6FF00315552 /* Assets.xcassets */; };
 		A76E4ECB29F5A6FF00315552 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A76E4EC929F5A6FF00315552 /* LaunchScreen.storyboard */; };
 		A76E4ED429F5A79A00315552 /* UIView+Anchor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76E4ED329F5A79A00315552 /* UIView+Anchor.swift */; };
+		A76E4ED729F5B4A600315552 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = A76E4ED629F5B4A600315552 /* Alamofire */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +34,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A76E4ED729F5B4A600315552 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -94,6 +96,9 @@
 			dependencies = (
 			);
 			name = "usg-cekirge-challenge";
+			packageProductDependencies = (
+				A76E4ED629F5B4A600315552 /* Alamofire */,
+			);
 			productName = "usg-cekirge-challenge";
 			productReference = A76E4EB829F5A6FD00315552 /* usg-cekirge-challenge.app */;
 			productType = "com.apple.product-type.application";
@@ -122,6 +127,9 @@
 				Base,
 			);
 			mainGroup = A76E4EAF29F5A6FD00315552;
+			packageReferences = (
+				A76E4ED529F5B4A600315552 /* XCRemoteSwiftPackageReference "Alamofire" */,
+			);
 			productRefGroup = A76E4EB929F5A6FD00315552 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -360,6 +368,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		A76E4ED529F5B4A600315552 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		A76E4ED629F5B4A600315552 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A76E4ED529F5B4A600315552 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		A76E4EC429F5A6FD00315552 /* usg_cekirge_challenge.xcdatamodeld */ = {

@@ -110,11 +110,11 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectioncell", for: indexPath)
-           let label = UILabel(frame: cell.bounds)
-           label.text = "\(indexPath.item)"
-           label.textAlignment = .center
-           cell.contentView.addSubview(label)
-           return cell
+        let label = UILabel(frame: cell.bounds)
+        label.text = "\(indexPath.item)"
+        label.textAlignment = .center
+        cell.contentView.addSubview(label)
+        return cell
     }
     
 }
