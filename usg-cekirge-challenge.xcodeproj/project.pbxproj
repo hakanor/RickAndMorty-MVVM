@@ -16,6 +16,7 @@
 		A76E4ED429F5A79A00315552 /* UIView+Anchor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76E4ED329F5A79A00315552 /* UIView+Anchor.swift */; };
 		A76E4ED729F5B4A600315552 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = A76E4ED629F5B4A600315552 /* Alamofire */; };
 		A7CCE27B29F5BD9000C74402 /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7CCE27A29F5BD9000C74402 /* ApiService.swift */; };
+		A7CCE27D29F5E90B00C74402 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7CCE27C29F5E90A00C74402 /* SplashViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,7 @@
 		A76E4ECC29F5A6FF00315552 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A76E4ED329F5A79A00315552 /* UIView+Anchor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Anchor.swift"; sourceTree = "<group>"; };
 		A7CCE27A29F5BD9000C74402 /* ApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
+		A7CCE27C29F5E90A00C74402 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +68,7 @@
 				A76E4EBB29F5A6FD00315552 /* AppDelegate.swift */,
 				A76E4EBD29F5A6FD00315552 /* SceneDelegate.swift */,
 				A76E4EBF29F5A6FD00315552 /* HomeViewController.swift */,
+				A7CCE27C29F5E90A00C74402 /* SplashViewController.swift */,
 				A7CCE27A29F5BD9000C74402 /* ApiService.swift */,
 				A76E4EC729F5A6FF00315552 /* Assets.xcassets */,
 				A76E4EC929F5A6FF00315552 /* LaunchScreen.storyboard */,
@@ -163,6 +166,7 @@
 				A76E4EC029F5A6FD00315552 /* HomeViewController.swift in Sources */,
 				A7CCE27B29F5BD9000C74402 /* ApiService.swift in Sources */,
 				A76E4EBC29F5A6FD00315552 /* AppDelegate.swift in Sources */,
+				A7CCE27D29F5E90B00C74402 /* SplashViewController.swift in Sources */,
 				A76E4EBE29F5A6FD00315552 /* SceneDelegate.swift in Sources */,
 				A76E4ED429F5A79A00315552 /* UIView+Anchor.swift in Sources */,
 			);
@@ -307,7 +311,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "usg-cekirge-challenge/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UILaunchStoryboardName = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -334,7 +338,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "usg-cekirge-challenge/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UILaunchStoryboardName = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
