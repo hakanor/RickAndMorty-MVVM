@@ -10,6 +10,9 @@ import UIKit
 class HomeViewController: UIViewController {
 
     // MARK: - Properties
+    var locations: [Location] = []
+    var characters: [Character] = []
+    var currentPage: Int = 1
     
     // MARK: - Subviews
     private lazy var titleLabel: UILabel = {
@@ -32,7 +35,6 @@ class HomeViewController: UIViewController {
         let layout = UICollectionViewFlowLayout()
         layout.itemSize = CGSize(width: 70, height: 100)
         layout.scrollDirection = .horizontal
-        
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "collectioncell")
         collectionView.backgroundColor = .clear
@@ -46,7 +48,8 @@ class HomeViewController: UIViewController {
         configureUI()
         configureTableView()
         configureCollectionView()
-        // Do any additional setup after loading the view.
+        fetchLocations()
+        fetchCharacters()
     }
     
     // MARK: - Helper Functions
@@ -80,21 +83,49 @@ class HomeViewController: UIViewController {
     }
     
     // MARK: - API
-    private func fetchData(){
-        // fetchData
+    private func fetchLocations(){
+        ApiService.shared.fetchLocations(page: currentPage) { locations in
+            if let locations = locations {
+                self.locations = locations
+                self.collectionView.reloadData()
+            } else {
+                print("Failed to fetch locations.")
+            }
+        }
     }
+    
+    private func fetchCharacters(){
+        ApiService.shared.fetchCharacters { characters in
+            if let characters = characters {
+                self.characters = characters
+                self.tableView.reloadData()
+            } else {
+                print("Failed to fetch characters.")
+            }
+        }
+    }
+    
+    func fetchCharactersForLocation(location: Location) {
+        let residents = location.residents
+        ApiService.shared.fetchCharactersByResidents(residents: residents) { [weak self] characters in
+            guard let self = self, let characters = characters else { return }
+            self.characters = characters
+            self.tableView.reloadData()
+        }
+    }
+    
 }
 
 // MARK: - TableView DataSource and Delegate
 extension HomeViewController: UITableViewDataSource, UITableViewDelegate{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = "\(indexPath.item)"
+        cell.textLabel?.text = characters[indexPath.row].name
         return cell
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return characters.count
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -105,16 +136,36 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate{
 // MARK: - CollectionView DataSource and Delegate
 extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        20
+        locations.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        let lastRowIndex = collectionView.numberOfItems(inSection: 0) - 1
+        if indexPath.row == lastRowIndex {
+            currentPage += 1
+            ApiService.shared.fetchLocations(page: currentPage) { [weak self] locations in
+                guard let self = self, let locations = locations else { return }
+                self.locations.append(contentsOf: locations)
+                self.collectionView.reloadData()
+            }
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectioncell", for: indexPath)
         let label = UILabel(frame: cell.bounds)
-        label.text = "\(indexPath.item)"
+        label.text = locations[indexPath.row].name
         label.textAlignment = .center
         cell.contentView.addSubview(label)
         return cell
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let location = locations[indexPath.row]
+        let residents = location.residents
+        ApiService.shared.fetchCharactersByResidents(residents: residents) { characters in
+            self.characters = characters ?? []
+            self.tableView.reloadData()
+        }
+    }
 }

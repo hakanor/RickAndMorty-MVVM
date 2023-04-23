@@ -15,6 +15,7 @@
 		A76E4ECB29F5A6FF00315552 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A76E4EC929F5A6FF00315552 /* LaunchScreen.storyboard */; };
 		A76E4ED429F5A79A00315552 /* UIView+Anchor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76E4ED329F5A79A00315552 /* UIView+Anchor.swift */; };
 		A76E4ED729F5B4A600315552 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = A76E4ED629F5B4A600315552 /* Alamofire */; };
+		A7CCE27B29F5BD9000C74402 /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7CCE27A29F5BD9000C74402 /* ApiService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 		A76E4ECA29F5A6FF00315552 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A76E4ECC29F5A6FF00315552 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A76E4ED329F5A79A00315552 /* UIView+Anchor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Anchor.swift"; sourceTree = "<group>"; };
+		A7CCE27A29F5BD9000C74402 /* ApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +66,7 @@
 				A76E4EBB29F5A6FD00315552 /* AppDelegate.swift */,
 				A76E4EBD29F5A6FD00315552 /* SceneDelegate.swift */,
 				A76E4EBF29F5A6FD00315552 /* HomeViewController.swift */,
+				A7CCE27A29F5BD9000C74402 /* ApiService.swift */,
 				A76E4EC729F5A6FF00315552 /* Assets.xcassets */,
 				A76E4EC929F5A6FF00315552 /* LaunchScreen.storyboard */,
 				A76E4ECC29F5A6FF00315552 /* Info.plist */,
@@ -158,6 +161,7 @@
 			files = (
 				A76E4EC629F5A6FD00315552 /* usg_cekirge_challenge.xcdatamodeld in Sources */,
 				A76E4EC029F5A6FD00315552 /* HomeViewController.swift in Sources */,
+				A7CCE27B29F5BD9000C74402 /* ApiService.swift in Sources */,
 				A76E4EBC29F5A6FD00315552 /* AppDelegate.swift in Sources */,
 				A76E4EBE29F5A6FD00315552 /* SceneDelegate.swift in Sources */,
 				A76E4ED429F5A79A00315552 /* UIView+Anchor.swift in Sources */,
