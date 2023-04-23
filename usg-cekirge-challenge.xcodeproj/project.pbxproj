@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		A76E4EBC29F5A6FD00315552 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76E4EBB29F5A6FD00315552 /* AppDelegate.swift */; };
 		A76E4EBE29F5A6FD00315552 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76E4EBD29F5A6FD00315552 /* SceneDelegate.swift */; };
-		A76E4EC029F5A6FD00315552 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76E4EBF29F5A6FD00315552 /* ViewController.swift */; };
+		A76E4EC029F5A6FD00315552 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76E4EBF29F5A6FD00315552 /* HomeViewController.swift */; };
 		A76E4EC629F5A6FD00315552 /* usg_cekirge_challenge.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A76E4EC429F5A6FD00315552 /* usg_cekirge_challenge.xcdatamodeld */; };
 		A76E4EC829F5A6FF00315552 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A76E4EC729F5A6FF00315552 /* Assets.xcassets */; };
 		A76E4ECB29F5A6FF00315552 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A76E4EC929F5A6FF00315552 /* LaunchScreen.storyboard */; };
@@ -20,7 +20,7 @@
 		A76E4EB829F5A6FD00315552 /* usg-cekirge-challenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "usg-cekirge-challenge.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A76E4EBB29F5A6FD00315552 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A76E4EBD29F5A6FD00315552 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		A76E4EBF29F5A6FD00315552 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		A76E4EBF29F5A6FD00315552 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		A76E4EC529F5A6FD00315552 /* usg_cekirge_challenge.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = usg_cekirge_challenge.xcdatamodel; sourceTree = "<group>"; };
 		A76E4EC729F5A6FF00315552 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A76E4ECA29F5A6FF00315552 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -61,7 +61,7 @@
 				A76E4ED229F5A77800315552 /* Extensions */,
 				A76E4EBB29F5A6FD00315552 /* AppDelegate.swift */,
 				A76E4EBD29F5A6FD00315552 /* SceneDelegate.swift */,
-				A76E4EBF29F5A6FD00315552 /* ViewController.swift */,
+				A76E4EBF29F5A6FD00315552 /* HomeViewController.swift */,
 				A76E4EC729F5A6FF00315552 /* Assets.xcassets */,
 				A76E4EC929F5A6FF00315552 /* LaunchScreen.storyboard */,
 				A76E4ECC29F5A6FF00315552 /* Info.plist */,
@@ -149,7 +149,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A76E4EC629F5A6FD00315552 /* usg_cekirge_challenge.xcdatamodeld in Sources */,
-				A76E4EC029F5A6FD00315552 /* ViewController.swift in Sources */,
+				A76E4EC029F5A6FD00315552 /* HomeViewController.swift in Sources */,
 				A76E4EBC29F5A6FD00315552 /* AppDelegate.swift in Sources */,
 				A76E4EBE29F5A6FD00315552 /* SceneDelegate.swift in Sources */,
 				A76E4ED429F5A79A00315552 /* UIView+Anchor.swift in Sources */,
