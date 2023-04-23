@@ -10,7 +10,6 @@
 		A76E4EBC29F5A6FD00315552 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76E4EBB29F5A6FD00315552 /* AppDelegate.swift */; };
 		A76E4EBE29F5A6FD00315552 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76E4EBD29F5A6FD00315552 /* SceneDelegate.swift */; };
 		A76E4EC029F5A6FD00315552 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A76E4EBF29F5A6FD00315552 /* ViewController.swift */; };
-		A76E4EC329F5A6FD00315552 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A76E4EC129F5A6FD00315552 /* Main.storyboard */; };
 		A76E4EC629F5A6FD00315552 /* usg_cekirge_challenge.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A76E4EC429F5A6FD00315552 /* usg_cekirge_challenge.xcdatamodeld */; };
 		A76E4EC829F5A6FF00315552 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A76E4EC729F5A6FF00315552 /* Assets.xcassets */; };
 		A76E4ECB29F5A6FF00315552 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A76E4EC929F5A6FF00315552 /* LaunchScreen.storyboard */; };
@@ -22,7 +21,6 @@
 		A76E4EBB29F5A6FD00315552 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A76E4EBD29F5A6FD00315552 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		A76E4EBF29F5A6FD00315552 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		A76E4EC229F5A6FD00315552 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A76E4EC529F5A6FD00315552 /* usg_cekirge_challenge.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = usg_cekirge_challenge.xcdatamodel; sourceTree = "<group>"; };
 		A76E4EC729F5A6FF00315552 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A76E4ECA29F5A6FF00315552 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -64,7 +62,6 @@
 				A76E4EBB29F5A6FD00315552 /* AppDelegate.swift */,
 				A76E4EBD29F5A6FD00315552 /* SceneDelegate.swift */,
 				A76E4EBF29F5A6FD00315552 /* ViewController.swift */,
-				A76E4EC129F5A6FD00315552 /* Main.storyboard */,
 				A76E4EC729F5A6FF00315552 /* Assets.xcassets */,
 				A76E4EC929F5A6FF00315552 /* LaunchScreen.storyboard */,
 				A76E4ECC29F5A6FF00315552 /* Info.plist */,
@@ -141,7 +138,6 @@
 			files = (
 				A76E4ECB29F5A6FF00315552 /* LaunchScreen.storyboard in Resources */,
 				A76E4EC829F5A6FF00315552 /* Assets.xcassets in Resources */,
-				A76E4EC329F5A6FD00315552 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -163,14 +159,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		A76E4EC129F5A6FD00315552 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				A76E4EC229F5A6FD00315552 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		A76E4EC929F5A6FF00315552 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -308,7 +296,6 @@
 				INFOPLIST_FILE = "usg-cekirge-challenge/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -336,7 +323,6 @@
 				INFOPLIST_FILE = "usg-cekirge-challenge/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
