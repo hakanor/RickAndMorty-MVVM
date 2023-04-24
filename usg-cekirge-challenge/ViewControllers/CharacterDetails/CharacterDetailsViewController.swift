@@ -143,7 +143,14 @@ class CharacterDetailsViewController: UIViewController {
             episodeString += episode + " "
         }
         detailsArray.append(("Episodes:", episodeString))
-        detailsArray.append(("Created at:", self.character.created))
+        
+        let dateString = self.character.created
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+        guard let date = dateFormatter.date(from: dateString) else { return }
+        dateFormatter.dateFormat = "dd MMMM yyyy, HH:mm:ss"
+        let resultString = dateFormatter.string(from: date)
+        detailsArray.append(("Created at:", resultString))
     }
     
     // MARK: - API
