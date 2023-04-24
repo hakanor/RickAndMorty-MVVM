@@ -129,7 +129,7 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate{
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let vc = CharacterDetailsViewController()
+        let vc = CharacterDetailsViewController(character: characters[indexPath.row])
         let nav = UINavigationController(rootViewController: vc)
         nav.modalPresentationStyle = .fullScreen
         present(nav,animated: true,completion: nil)

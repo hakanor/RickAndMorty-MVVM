@@ -19,6 +19,7 @@
 		A7CCE27D29F5E90B00C74402 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7CCE27C29F5E90A00C74402 /* SplashViewController.swift */; };
 		A7CCE27F29F5ED1C00C74402 /* CharacterDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7CCE27E29F5ED1C00C74402 /* CharacterDetailsViewController.swift */; };
 		A7CCE28129F5EF7C00C74402 /* DetailsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7CCE28029F5EF7C00C74402 /* DetailsCell.swift */; };
+		A7CCE28429F5F59300C74402 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = A7CCE28329F5F59300C74402 /* SDWebImage */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A7CCE28429F5F59300C74402 /* SDWebImage in Frameworks */,
 				A76E4ED729F5B4A600315552 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -110,6 +112,7 @@
 			name = "usg-cekirge-challenge";
 			packageProductDependencies = (
 				A76E4ED629F5B4A600315552 /* Alamofire */,
+				A7CCE28329F5F59300C74402 /* SDWebImage */,
 			);
 			productName = "usg-cekirge-challenge";
 			productReference = A76E4EB829F5A6FD00315552 /* usg-cekirge-challenge.app */;
@@ -141,6 +144,7 @@
 			mainGroup = A76E4EAF29F5A6FD00315552;
 			packageReferences = (
 				A76E4ED529F5B4A600315552 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				A7CCE28229F5F59300C74402 /* XCRemoteSwiftPackageReference "SDWebImage" */,
 			);
 			productRefGroup = A76E4EB929F5A6FD00315552 /* Products */;
 			projectDirPath = "";
@@ -394,6 +398,14 @@
 				minimumVersion = 5.0.0;
 			};
 		};
+		A7CCE28229F5F59300C74402 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImage";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -401,6 +413,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = A76E4ED529F5B4A600315552 /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
+		};
+		A7CCE28329F5F59300C74402 /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A7CCE28229F5F59300C74402 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
 		};
 /* End XCSwiftPackageProductDependency section */
 
