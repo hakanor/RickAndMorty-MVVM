@@ -27,7 +27,7 @@ class SplashViewController: UIViewController {
         label.numberOfLines = 1
         label.textAlignment = .center
         label.font = UIFont.systemFont(ofSize: 44, weight: .bold)
-        label.text = "Welcome"
+        label.text = "Welcome!"
         return label
     }()
 
@@ -41,7 +41,7 @@ class SplashViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.0) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
             let homeVC = HomeViewController()
             homeVC.modalPresentationStyle = .fullScreen
             self.present(homeVC, animated: true, completion: nil)
@@ -65,7 +65,7 @@ class SplashViewController: UIViewController {
     private func checkFirstLaunch() {
         let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
         if launchedBefore {
-            self.titleLabel.text = "Hello"
+            self.titleLabel.text = "Hello!"
         } else {
             UserDefaults.standard.set(true, forKey: "launchedBefore")
         }

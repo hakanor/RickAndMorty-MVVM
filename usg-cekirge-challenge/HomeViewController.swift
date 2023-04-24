@@ -15,14 +15,12 @@ class HomeViewController: UIViewController {
     var currentPage: Int = 1
     
     // MARK: - Subviews
-    private lazy var titleLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.textColor = .black
-        label.numberOfLines = 1
-        label.font = UIFont.systemFont(ofSize: 22, weight: .bold)
-        label.text = "Title"
-        return label
+    private lazy var logo: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = UIImage(named: "logo.png")
+        imageView.clipsToBounds = true
+        imageView.contentMode = .scaleAspectFit
+        return imageView
     }()
     
     private lazy var tableView: UITableView = {
@@ -33,7 +31,7 @@ class HomeViewController: UIViewController {
     
     private lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
-        layout.itemSize = CGSize(width: 70, height: 100)
+        layout.itemSize = CGSize(width: 150, height: 50)
         layout.scrollDirection = .horizontal
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "collectioncell")
@@ -54,14 +52,15 @@ class HomeViewController: UIViewController {
     
     // MARK: - Helper Functions
     private func configureUI(){
-        view.backgroundColor = .yellow
-        [titleLabel, collectionView, tableView] .forEach(view.addSubview(_:))
+        view.backgroundColor = .white
+        [logo, collectionView, tableView] .forEach(view.addSubview(_:))
         
-        titleLabel.anchor(top: view.safeAreaLayoutGuide.topAnchor, left: view.safeAreaLayoutGuide.leftAnchor, right: view.safeAreaLayoutGuide.rightAnchor, paddingTop: 24, paddingLeft: 0, paddingRight: 0)
+        logo.anchor(top: view.safeAreaLayoutGuide.topAnchor, left: view.safeAreaLayoutGuide.leftAnchor, right: view.safeAreaLayoutGuide.rightAnchor, paddingTop: 0, paddingLeft: 0, paddingRight: 0, width: UIScreen.main.bounds.width, height: 80)
+        logo.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         
-        collectionView.anchor(top: titleLabel.bottomAnchor, left: view.safeAreaLayoutGuide.leftAnchor, right: view.safeAreaLayoutGuide.rightAnchor, paddingTop: 14, paddingLeft: 0, paddingRight: 0, height: 120)
+        collectionView.anchor(top: logo.bottomAnchor, left: view.safeAreaLayoutGuide.leftAnchor, right: view.safeAreaLayoutGuide.rightAnchor, paddingTop: 0, paddingLeft: 10, paddingRight: 0, height: 50)
                 
-        tableView.anchor(top: collectionView.bottomAnchor, left: view.safeAreaLayoutGuide.leftAnchor, bottom: view.safeAreaLayoutGuide.bottomAnchor, right:view.safeAreaLayoutGuide.rightAnchor, paddingTop: 16, paddingLeft: 0, paddingBottom: 10, paddingRight: 0)
+        tableView.anchor(top: collectionView.bottomAnchor, left: view.safeAreaLayoutGuide.leftAnchor, bottom: view.safeAreaLayoutGuide.bottomAnchor, right:view.safeAreaLayoutGuide.rightAnchor, paddingTop: 12, paddingLeft: 0, paddingBottom: 0, paddingRight: 0)
     }
     
     private func configureTableView(){
@@ -79,7 +78,7 @@ class HomeViewController: UIViewController {
         collectionView.delegate = self
         collectionView.showsVerticalScrollIndicator = false
         collectionView.showsHorizontalScrollIndicator = false
-        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "collectioncell")
+        collectionView.register(HomeCollectionViewCell.self, forCellWithReuseIdentifier: "collectioncell")
     }
     
     // MARK: - API
@@ -155,11 +154,8 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectioncell", for: indexPath)
-        let label = UILabel(frame: cell.bounds)
-        label.text = locations[indexPath.row].name
-        label.textAlignment = .center
-        cell.contentView.addSubview(label)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectioncell", for: indexPath) as! HomeCollectionViewCell
+        cell.setCollectionViewCellLabel(location: self.locations[indexPath.row])
         return cell
     }
     
