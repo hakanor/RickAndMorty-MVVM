@@ -19,6 +19,7 @@
 		A7CCE27D29F5E90B00C74402 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7CCE27C29F5E90A00C74402 /* SplashViewController.swift */; };
 		A7CCE27F29F5ED1C00C74402 /* CharacterDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7CCE27E29F5ED1C00C74402 /* CharacterDetailsViewController.swift */; };
 		A7CCE28429F5F59300C74402 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = A7CCE28329F5F59300C74402 /* SDWebImage */; };
+		A7CCE28629F6B94C00C74402 /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7CCE28529F6B94C00C74402 /* HomeTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		A7CCE27A29F5BD9000C74402 /* ApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
 		A7CCE27C29F5E90A00C74402 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		A7CCE27E29F5ED1C00C74402 /* CharacterDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailsViewController.swift; sourceTree = "<group>"; };
+		A7CCE28529F6B94C00C74402 /* HomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +81,7 @@
 				A76E4EC929F5A6FF00315552 /* LaunchScreen.storyboard */,
 				A76E4ECC29F5A6FF00315552 /* Info.plist */,
 				A76E4EC429F5A6FD00315552 /* usg_cekirge_challenge.xcdatamodeld */,
+				A7CCE28529F6B94C00C74402 /* HomeTableViewCell.swift */,
 			);
 			path = "usg-cekirge-challenge";
 			sourceTree = "<group>";
@@ -175,6 +178,7 @@
 				A76E4EBC29F5A6FD00315552 /* AppDelegate.swift in Sources */,
 				A7CCE27D29F5E90B00C74402 /* SplashViewController.swift in Sources */,
 				A7CCE27F29F5ED1C00C74402 /* CharacterDetailsViewController.swift in Sources */,
+				A7CCE28629F6B94C00C74402 /* HomeTableViewCell.swift in Sources */,
 				A76E4EBE29F5A6FD00315552 /* SceneDelegate.swift in Sources */,
 				A76E4ED429F5A79A00315552 /* UIView+Anchor.swift in Sources */,
 			);

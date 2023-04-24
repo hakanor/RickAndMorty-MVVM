@@ -67,7 +67,7 @@ class HomeViewController: UIViewController {
     private func configureTableView(){
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        tableView.register(HomeTableViewCell.self, forCellReuseIdentifier: "cell")
         tableView.showsVerticalScrollIndicator = false
         tableView.showsHorizontalScrollIndicator = false
         tableView.separatorStyle = .none
@@ -119,8 +119,8 @@ class HomeViewController: UIViewController {
 // MARK: - TableView DataSource and Delegate
 extension HomeViewController: UITableViewDataSource, UITableViewDelegate{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = characters[indexPath.row].name
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! HomeTableViewCell
+        cell.configureCell(character: characters[indexPath.row])
         return cell
     }
     
