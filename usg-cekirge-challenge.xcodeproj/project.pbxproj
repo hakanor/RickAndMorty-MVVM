@@ -72,15 +72,11 @@
 		A76E4EBA29F5A6FD00315552 /* usg-cekirge-challenge */ = {
 			isa = PBXGroup;
 			children = (
-				A76E4ED229F5A77800315552 /* Extensions */,
+				A7CCE28E29F6E05400C74402 /* Api */,
+				A7CCE28A29F6DFFD00C74402 /* ViewControllers */,
 				A76E4EBB29F5A6FD00315552 /* AppDelegate.swift */,
 				A76E4EBD29F5A6FD00315552 /* SceneDelegate.swift */,
-				A76E4EBF29F5A6FD00315552 /* HomeViewController.swift */,
-				A7CCE28729F6C79500C74402 /* HomeCollectionViewCell.swift */,
-				A7CCE27C29F5E90A00C74402 /* SplashViewController.swift */,
-				A7CCE27E29F5ED1C00C74402 /* CharacterDetailsViewController.swift */,
-				A7CCE28529F6B94C00C74402 /* HomeTableViewCell.swift */,
-				A7CCE27A29F5BD9000C74402 /* ApiService.swift */,
+				A76E4ED229F5A77800315552 /* Extensions */,
 				A76E4EC729F5A6FF00315552 /* Assets.xcassets */,
 				A76E4EC929F5A6FF00315552 /* LaunchScreen.storyboard */,
 				A76E4ECC29F5A6FF00315552 /* Info.plist */,
@@ -95,6 +91,50 @@
 				A76E4ED329F5A79A00315552 /* UIView+Anchor.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		A7CCE28A29F6DFFD00C74402 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				A7CCE28C29F6E00B00C74402 /* Splash */,
+				A7CCE28D29F6E01200C74402 /* CharacterDetails */,
+				A7CCE28B29F6E00700C74402 /* Home */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		A7CCE28B29F6E00700C74402 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				A76E4EBF29F5A6FD00315552 /* HomeViewController.swift */,
+				A7CCE28729F6C79500C74402 /* HomeCollectionViewCell.swift */,
+				A7CCE28529F6B94C00C74402 /* HomeTableViewCell.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		A7CCE28C29F6E00B00C74402 /* Splash */ = {
+			isa = PBXGroup;
+			children = (
+				A7CCE27C29F5E90A00C74402 /* SplashViewController.swift */,
+			);
+			path = Splash;
+			sourceTree = "<group>";
+		};
+		A7CCE28D29F6E01200C74402 /* CharacterDetails */ = {
+			isa = PBXGroup;
+			children = (
+				A7CCE27E29F5ED1C00C74402 /* CharacterDetailsViewController.swift */,
+			);
+			path = CharacterDetails;
+			sourceTree = "<group>";
+		};
+		A7CCE28E29F6E05400C74402 /* Api */ = {
+			isa = PBXGroup;
+			children = (
+				A7CCE27A29F5BD9000C74402 /* ApiService.swift */,
+			);
+			path = Api;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

@@ -111,14 +111,13 @@ class CharacterDetailsViewController: UIViewController {
             keyLabel.text = detail.key
             keyLabel.numberOfLines = 2
             keyLabel.textAlignment = .left
-            //TODO: - Tüm metinlerin yazı tipi Avenir olmalıdır.
-            keyLabel.font = UIFont(name: "Avenir-Bold", size: 22)
+            keyLabel.font = UIFont(name: "Avenir-Heavy", size: 22)
             
             let valueLabel = UILabel()
             valueLabel.text = detail.value
             valueLabel.numberOfLines = 2
             valueLabel.textAlignment = .left
-            valueLabel.font = UIFont(name: "Avenir", size: 22)
+            valueLabel.font = UIFont(name: "Avenir-Medium", size: 22)
 
             let innerStackView = UIStackView()
             innerStackView.axis = .horizontal
@@ -127,7 +126,7 @@ class CharacterDetailsViewController: UIViewController {
             
             innerStackView.addArrangedSubview(keyLabel)
             innerStackView.addArrangedSubview(valueLabel)
-                    
+            
             stackView.addArrangedSubview(innerStackView)
         }
     }
