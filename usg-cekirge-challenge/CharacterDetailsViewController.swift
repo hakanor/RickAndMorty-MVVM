@@ -25,6 +25,12 @@ class CharacterDetailsViewController: UIViewController {
         return button
     }()
     
+    private lazy var containerView: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
     private lazy var characterImage: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -43,6 +49,8 @@ class CharacterDetailsViewController: UIViewController {
     private lazy var stackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical
+        stackView.spacing = 5
+        // Satırların dikey margin’leri: 5 (dp/pt)
         stackView.translatesAutoresizingMaskIntoConstraints = false
         return stackView
     }()
@@ -70,18 +78,30 @@ class CharacterDetailsViewController: UIViewController {
     // MARK: - Helper Functions
     private func configureUI(){
         self.title = self.character.name
-        view.backgroundColor = .yellow
+        view.backgroundColor = .white
         [scrollView] .forEach(view.addSubview(_:))
         
-        scrollView.anchor(top: view.safeAreaLayoutGuide.topAnchor, left: view.safeAreaLayoutGuide.leftAnchor, bottom: view.safeAreaLayoutGuide.bottomAnchor, right: view.safeAreaLayoutGuide.rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0)
+        scrollView.anchor(top: view.safeAreaLayoutGuide.topAnchor, left: view.leftAnchor, bottom: view.safeAreaLayoutGuide.bottomAnchor, right: view.rightAnchor, width: UIScreen.main.bounds.width)
         
-        scrollView.addSubview(characterImage)
+        scrollView.addSubview(containerView)
         scrollView.addSubview(stackView)
         
-        characterImage.anchor(top: scrollView.topAnchor, left: scrollView.leftAnchor, right: scrollView.rightAnchor, paddingTop: 0, paddingLeft: 0, paddingBottom: 0, paddingRight: 0)
+        // - Resmin yatay margin’leri: 50 (dp/pt)
+        // - Resmin dikey margin’leri: 20 dp/pt.
+        containerView.anchor(top: scrollView.topAnchor, left: scrollView.leftAnchor,  right: scrollView.rightAnchor, paddingTop: 20, paddingLeft: 50, paddingBottom: 20, paddingRight: 50, height: 315)
         
-        stackView.anchor(top: characterImage.bottomAnchor, left: scrollView.leftAnchor, bottom: scrollView.bottomAnchor, right: scrollView.rightAnchor)
-        stackView.widthAnchor.constraint(equalTo: scrollView.widthAnchor).isActive = true
+        containerView.addSubview(characterImage)
+        
+        characterImage.centerXAnchor.constraint(equalTo: containerView.centerXAnchor).isActive = true
+        characterImage.centerYAnchor.constraint(equalTo: containerView.centerYAnchor).isActive = true
+        // Resmin ebatları: 275x275 (dp*/pt**)
+        characterImage.heightAnchor.constraint(equalToConstant: 275).isActive = true
+        characterImage.widthAnchor.constraint(equalToConstant: 275).isActive = true
+        
+        // Resim ile Status arası 20 dp/pt olacaktır
+        // Satırların yatay margin’leri: 20 (dp/pt)
+        // Metinlerin alt margin’i (Created at’in alt margin’i) : 20 (dp/pt)
+        stackView.anchor(top: containerView.bottomAnchor, left: scrollView.leftAnchor, bottom: scrollView.bottomAnchor, right: scrollView.rightAnchor, paddingTop: 20, paddingLeft: 20, paddingBottom: 20, paddingRight: 20, width: UIScreen.main.bounds.width - 40 )
     }
     
     private func configureStackView(){
@@ -91,13 +111,14 @@ class CharacterDetailsViewController: UIViewController {
             keyLabel.text = detail.key
             keyLabel.numberOfLines = 2
             keyLabel.textAlignment = .left
-            keyLabel.font = UIFont.systemFont(ofSize: 22)
+            //TODO: - Tüm metinlerin yazı tipi Avenir olmalıdır.
+            keyLabel.font = UIFont(name: "Avenir-Bold", size: 22)
             
             let valueLabel = UILabel()
             valueLabel.text = detail.value
             valueLabel.numberOfLines = 2
             valueLabel.textAlignment = .left
-            valueLabel.font = UIFont.systemFont(ofSize: 22)
+            valueLabel.font = UIFont(name: "Avenir", size: 22)
 
             let innerStackView = UIStackView()
             innerStackView.axis = .horizontal
