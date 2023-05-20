@@ -24,4 +24,16 @@ extension ServiceManager {
             }
         }
     }
+    
+    func fetchArrayResponse <T> (path: String, onSuccess: @escaping ([T]?) -> (), onError: @escaping (AFError) -> ()) where T: Codable {
+        AF.request(path, encoding: JSONEncoding.default).validate().responseDecodable(of: [T].self) { response in
+            switch response.result {
+            case .success(let value):
+                onSuccess(value)
+            case .failure(let error):
+                print("Error (ServiceManager): \(error.localizedDescription)")
+                onError(error)
+            }
+        }
+    }
 }

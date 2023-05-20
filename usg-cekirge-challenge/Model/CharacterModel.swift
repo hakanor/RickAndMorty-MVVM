@@ -32,7 +32,6 @@ struct Character: Codable {
     }
 }
 
-
 struct Response<T: Codable>: Codable {
     let info: Info
     let results: [T]

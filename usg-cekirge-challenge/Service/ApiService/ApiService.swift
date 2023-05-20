@@ -20,7 +20,7 @@ final class ApiService: ServiceProtocol {
     
     static let shared = ApiService()
     
-    func fetchCharacters(onSuccess: @escaping ([Character]?) -> Void, onError: @escaping (Alamofire.AFError) -> Void) {
+    func fetchCharacters(onSuccess: @escaping ([Character]?) -> Void, onError: @escaping (AFError) -> Void) {
         ServiceManager.shared.fetch(path: Constant.ServiceEndPoint.charactersServiceEndPoint()) { (response: [Character]?) in
             onSuccess(response)
         } onError: { error in
@@ -28,10 +28,7 @@ final class ApiService: ServiceProtocol {
         }
     }
     
-    private let baseUrl = "https://rickandmortyapi.com/api/"
-    
-    
-    func fetchLocations(page:Int, onSuccess: @escaping ([Location]?) -> Void, onError: @escaping (Alamofire.AFError) -> Void) {
+    func fetchLocations(page:Int, onSuccess: @escaping ([Location]?) -> Void, onError: @escaping (AFError) -> Void) {
         ServiceManager.shared.fetch(path: Constant.ServiceEndPoint.locationsServiceEndPoint(page: page)) { (response: [Location]?) in
             onSuccess(response)
         } onError: { error in
@@ -41,17 +38,10 @@ final class ApiService: ServiceProtocol {
     
     func fetchCharactersByResidents(residents: [String], onSuccess: @escaping ([Character]?) -> Void, onError: @escaping (AFError) -> Void) {
         let residentIds = residents.compactMap { $0.components(separatedBy: "/").last }
-        // documentation/#get-multiple-characters
-        let url = "\(baseUrl)character/\(residentIds.joined(separator: ","))"
-        print(url)
-        AF.request(url).responseDecodable(of: [Character].self) { response in
-            switch response.result {
-            case .success(let value):
-                onSuccess(value)
-            case .failure(let error):
-                print("Error fetchCharactersByResidents: \(error.localizedDescription)")
-                onError(error)
-            }
+        ServiceManager.shared.fetchArrayResponse(path: Constant.ServiceEndPoint.charactersWithResidentsServiceEndPoint(residentIds: residentIds)) { (response: [Character]?) in
+            onSuccess(response)
+        } onError: { error in
+            onError(error)
         }
     }
 }
