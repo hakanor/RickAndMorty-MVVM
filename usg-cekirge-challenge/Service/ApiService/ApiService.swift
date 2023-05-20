@@ -41,39 +41,16 @@ final class ApiService: ServiceProtocol {
     
     func fetchCharactersByResidents(residents: [String], onSuccess: @escaping ([Character]?) -> Void, onError: @escaping (AFError) -> Void) {
         let residentIds = residents.compactMap { $0.components(separatedBy: "/").last }
-        print(Constant.ServiceEndPoint.charactersWithResidentsServiceEndPoint(residentIds: residentIds))
-        ServiceManager.shared.fetch(path: Constant.ServiceEndPoint.charactersWithResidentsServiceEndPoint(residentIds: residentIds)) { (response: [Character]?) in
-            onSuccess(response)
-        } onError: { error in
-            onError(error)
-        }
-    }
-    
-    func fetchCharactersByResidents2(residents: [String], completion: @escaping ([Character]?) -> Void) {
-        let residentIds = residents.compactMap { $0.components(separatedBy: "/").last }
         // documentation/#get-multiple-characters
         let url = "\(baseUrl)character/\(residentIds.joined(separator: ","))"
         print(url)
         AF.request(url).responseDecodable(of: [Character].self) { response in
             switch response.result {
             case .success(let value):
-                completion(value)
+                onSuccess(value)
             case .failure(let error):
                 print("Error fetchCharactersByResidents: \(error.localizedDescription)")
-                completion(nil)
-            }
-        }
-    }
-    
-    func fetchCharacters2(completion: @escaping ([Character]?) -> Void) {
-        let url = "\(baseUrl)character/"
-        AF.request(url).responseDecodable(of: Response<Character>.self) { response in
-            switch response.result {
-            case .success(let value):
-                completion(value.results)
-            case .failure(let error):
-                print("Error fetchCharacters: \(error.localizedDescription)")
-                completion(nil)
+                onError(error)
             }
         }
     }
