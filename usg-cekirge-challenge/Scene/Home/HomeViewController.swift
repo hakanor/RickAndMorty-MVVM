@@ -87,9 +87,9 @@ class HomeViewController: UIViewController {
             if let locations = locations {
                 self.locations = locations
                 self.collectionView.reloadData()
-            } else {
-                print("Failed to fetch locations.")
             }
+        } onError: { error in
+            print("Failed to fetch locations.")
         }
     }
     
@@ -98,9 +98,9 @@ class HomeViewController: UIViewController {
             if let characters = characters {
                 self.characters = characters
                 self.tableView.reloadData()
-            } else {
-                print("Failed to fetch characters.")
             }
+        } onError: { error in
+            print("Failed to fetch characters")
         }
     }
     
@@ -110,6 +110,8 @@ class HomeViewController: UIViewController {
             guard let self = self, let characters = characters else { return }
             self.characters = characters
             self.tableView.reloadData()
+        } onError: { error in
+            print("Failed to fetch characters by residents")
         }
     }
     
@@ -145,10 +147,13 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         let lastRowIndex = collectionView.numberOfItems(inSection: 0) - 1
         if indexPath.row == lastRowIndex {
             currentPage += 1
+            
             ApiService.shared.fetchLocations(page: currentPage) { [weak self] locations in
                 guard let self = self, let locations = locations else { return }
                 self.locations.append(contentsOf: locations)
                 self.collectionView.reloadData()
+            } onError: { error in
+                print("Failed to fetch locations.")
             }
         }
     }
@@ -165,6 +170,8 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         ApiService.shared.fetchCharactersByResidents(residents: residents) { characters in
             self.characters = characters ?? []
             self.tableView.reloadData()
+        } onError: { error in
+            print("Failed to fetch characters by residents")
         }
     }
 }
