@@ -53,6 +53,39 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A753A3932A19041B002BB92D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		A753A3942A190427002BB92D /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				A76E4ECC29F5A6FF00315552 /* Info.plist */,
+			);
+			path = Support;
+			sourceTree = "<group>";
+		};
+		A753A3952A190432002BB92D /* App */ = {
+			isa = PBXGroup;
+			children = (
+				A76E4EBD29F5A6FD00315552 /* SceneDelegate.swift */,
+				A76E4EBB29F5A6FD00315552 /* AppDelegate.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		A753A3962A19046F002BB92D /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				A76E4EC729F5A6FF00315552 /* Assets.xcassets */,
+				A76E4EC929F5A6FF00315552 /* LaunchScreen.storyboard */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		A76E4EAF29F5A6FD00315552 = {
 			isa = PBXGroup;
 			children = (
@@ -72,14 +105,13 @@
 		A76E4EBA29F5A6FD00315552 /* usg-cekirge-challenge */ = {
 			isa = PBXGroup;
 			children = (
+				A753A3962A19046F002BB92D /* Resources */,
+				A753A3952A190432002BB92D /* App */,
+				A753A3942A190427002BB92D /* Support */,
+				A753A3932A19041B002BB92D /* Model */,
 				A7CCE28E29F6E05400C74402 /* Api */,
-				A7CCE28A29F6DFFD00C74402 /* ViewControllers */,
-				A76E4EBB29F5A6FD00315552 /* AppDelegate.swift */,
-				A76E4EBD29F5A6FD00315552 /* SceneDelegate.swift */,
+				A7CCE28A29F6DFFD00C74402 /* Scene */,
 				A76E4ED229F5A77800315552 /* Extensions */,
-				A76E4EC729F5A6FF00315552 /* Assets.xcassets */,
-				A76E4EC929F5A6FF00315552 /* LaunchScreen.storyboard */,
-				A76E4ECC29F5A6FF00315552 /* Info.plist */,
 				A76E4EC429F5A6FD00315552 /* usg_cekirge_challenge.xcdatamodeld */,
 			);
 			path = "usg-cekirge-challenge";
@@ -93,14 +125,14 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		A7CCE28A29F6DFFD00C74402 /* ViewControllers */ = {
+		A7CCE28A29F6DFFD00C74402 /* Scene */ = {
 			isa = PBXGroup;
 			children = (
 				A7CCE28C29F6E00B00C74402 /* Splash */,
 				A7CCE28D29F6E01200C74402 /* CharacterDetails */,
 				A7CCE28B29F6E00700C74402 /* Home */,
 			);
-			path = ViewControllers;
+			path = Scene;
 			sourceTree = "<group>";
 		};
 		A7CCE28B29F6E00700C74402 /* Home */ = {
@@ -365,7 +397,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = RZB5WTQ7UH;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "usg-cekirge-challenge/Info.plist";
+				INFOPLIST_FILE = "usg-cekirge-challenge/Support/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -392,7 +424,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = RZB5WTQ7UH;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "usg-cekirge-challenge/Info.plist";
+				INFOPLIST_FILE = "usg-cekirge-challenge/Support/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
