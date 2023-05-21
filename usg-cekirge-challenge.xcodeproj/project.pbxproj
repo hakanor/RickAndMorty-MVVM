@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A73920852A1A88C800ABEE50 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A73920842A1A88C800ABEE50 /* HomeViewModel.swift */; };
 		A753A3982A191046002BB92D /* CharacterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A753A3972A191046002BB92D /* CharacterModel.swift */; };
 		A753A39B2A191099002BB92D /* LocationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A753A39A2A191099002BB92D /* LocationModel.swift */; };
 		A753A39E2A191122002BB92D /* ServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A753A39D2A191122002BB92D /* ServiceManager.swift */; };
@@ -29,6 +30,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A73920842A1A88C800ABEE50 /* HomeViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		A753A3972A191046002BB92D /* CharacterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterModel.swift; sourceTree = "<group>"; };
 		A753A39A2A191099002BB92D /* LocationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationModel.swift; sourceTree = "<group>"; };
 		A753A39D2A191122002BB92D /* ServiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceManager.swift; sourceTree = "<group>"; };
@@ -179,6 +181,7 @@
 				A76E4EBF29F5A6FD00315552 /* HomeViewController.swift */,
 				A7CCE28729F6C79500C74402 /* HomeCollectionViewCell.swift */,
 				A7CCE28529F6B94C00C74402 /* HomeTableViewCell.swift */,
+				A73920842A1A88C800ABEE50 /* HomeViewModel.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -289,6 +292,7 @@
 				A76E4EC629F5A6FD00315552 /* usg_cekirge_challenge.xcdatamodeld in Sources */,
 				A76E4EC029F5A6FD00315552 /* HomeViewController.swift in Sources */,
 				A7CCE27B29F5BD9000C74402 /* ApiService.swift in Sources */,
+				A73920852A1A88C800ABEE50 /* HomeViewModel.swift in Sources */,
 				A76E4EBC29F5A6FD00315552 /* AppDelegate.swift in Sources */,
 				A753A39E2A191122002BB92D /* ServiceManager.swift in Sources */,
 				A753A3A42A191531002BB92D /* ServiceConstant.swift in Sources */,

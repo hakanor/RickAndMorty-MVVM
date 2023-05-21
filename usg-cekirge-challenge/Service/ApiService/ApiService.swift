@@ -17,7 +17,7 @@ protocol ServiceProtocol {
 
 final class ApiService: ServiceProtocol {
     
-    private init() {}
+    init() {}
     
     static let shared = ApiService()
     
