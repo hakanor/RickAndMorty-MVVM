@@ -10,8 +10,9 @@ import Alamofire
 
 protocol ServiceProtocol {
     func fetchCharacters(onSuccess: @escaping ([Character]?) -> Void, onError: @escaping (AFError) -> Void)
-    func fetchLocations(page:Int, onSuccess: @escaping ([Location]?) -> Void, onError: @escaping (AFError) -> Void)
     func fetchCharactersByResidents(residents: [String],onSuccess: @escaping ([Character]?) -> Void, onError: @escaping (AFError) -> Void)
+    func fetchSingleCharacter(charId: String, onSuccess: @escaping ([Character]?) -> Void, onError: @escaping (AFError) -> Void)
+    func fetchLocations(page:Int, onSuccess: @escaping ([Location]?) -> Void, onError: @escaping (AFError) -> Void)
 }
 
 final class ApiService: ServiceProtocol {
@@ -23,6 +24,14 @@ final class ApiService: ServiceProtocol {
     func fetchCharacters(onSuccess: @escaping ([Character]?) -> Void, onError: @escaping (AFError) -> Void) {
         ServiceManager.shared.fetch(path: Constant.ServiceEndPoint.charactersServiceEndPoint()) { (response: [Character]?) in
             onSuccess(response)
+        } onError: { error in
+            onError(error)
+        }
+    }
+    
+    func fetchSingleCharacter(charId: String, onSuccess: @escaping ([Character]?) -> Void, onError: @escaping (AFError) -> Void) {
+        ServiceManager.shared.fetchSingleObject(path: Constant.ServiceEndPoint.singleCharacterServiceEndPoint(charId: charId)) { (response: Character?) in
+            onSuccess(response != nil ? [response!] : nil)
         } onError: { error in
             onError(error)
         }

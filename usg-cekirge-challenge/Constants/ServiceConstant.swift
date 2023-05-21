@@ -15,8 +15,11 @@ extension Constant {
         static func charactersServiceEndPoint() -> String {
             "\(BASE_URL.rawValue)character/"
         }
+        static func singleCharacterServiceEndPoint(charId: String) -> String {
+            "\(BASE_URL.rawValue)character/\(charId)"
+        }
         
-        static func charactersWithResidentsServiceEndPoint(residentIds:[String]) -> String {
+        static func charactersWithResidentsServiceEndPoint(residentIds: [String]) -> String {
             "\(BASE_URL.rawValue)character/\(residentIds.joined(separator: ","))"
         }
         

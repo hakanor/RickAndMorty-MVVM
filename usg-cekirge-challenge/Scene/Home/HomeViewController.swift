@@ -167,11 +167,25 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let location = locations[indexPath.row]
         let residents = location.residents
-        ApiService.shared.fetchCharactersByResidents(residents: residents) { characters in
-            self.characters = characters ?? []
+        switch residents.count {
+        case 0:
+            self.characters = []
             self.tableView.reloadData()
-        } onError: { error in
-            print("Failed to fetch characters by residents")
+        case 1:
+            let charId = residents.compactMap { $0.components(separatedBy: "/").last }.first ?? ""
+            ApiService.shared.fetchSingleCharacter(charId: charId) { character in
+                self.characters = character ?? []
+                self.tableView.reloadData()
+            } onError: { error in
+                print("Failed to fetch characters by residents")
+            }
+        default:
+            ApiService.shared.fetchCharactersByResidents(residents: residents) { characters in
+                self.characters = characters ?? []
+                self.tableView.reloadData()
+            } onError: { error in
+                print("Failed to fetch characters by residents")
+            }
         }
     }
 }
