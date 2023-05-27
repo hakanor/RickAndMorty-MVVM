@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		A73920852A1A88C800ABEE50 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A73920842A1A88C800ABEE50 /* HomeViewModel.swift */; };
+		A739208D2A1B882E00ABEE50 /* usg_cekirge_challengeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A739208C2A1B882E00ABEE50 /* usg_cekirge_challengeTests.swift */; };
+		A73920942A1B8A1F00ABEE50 /* ApiServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A73920932A1B8A1F00ABEE50 /* ApiServiceTests.swift */; };
+		A73920972A1B8E8700ABEE50 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = A73920962A1B8E8700ABEE50 /* SDWebImage */; };
+		A73920992A1B8F1C00ABEE50 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = A73920982A1B8F1C00ABEE50 /* Alamofire */; };
 		A753A3982A191046002BB92D /* CharacterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A753A3972A191046002BB92D /* CharacterModel.swift */; };
 		A753A39B2A191099002BB92D /* LocationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A753A39A2A191099002BB92D /* LocationModel.swift */; };
 		A753A39E2A191122002BB92D /* ServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A753A39D2A191122002BB92D /* ServiceManager.swift */; };
@@ -29,8 +33,21 @@
 		A7CCE28829F6C79500C74402 /* HomeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7CCE28729F6C79500C74402 /* HomeCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		A739208E2A1B882E00ABEE50 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A76E4EB029F5A6FD00315552 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A76E4EB729F5A6FD00315552;
+			remoteInfo = "usg-cekirge-challenge";
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		A73920842A1A88C800ABEE50 /* HomeViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		A739208A2A1B882D00ABEE50 /* usg-cekirge-challengeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "usg-cekirge-challengeTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A739208C2A1B882E00ABEE50 /* usg_cekirge_challengeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = usg_cekirge_challengeTests.swift; sourceTree = "<group>"; };
+		A73920932A1B8A1F00ABEE50 /* ApiServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiServiceTests.swift; sourceTree = "<group>"; };
 		A753A3972A191046002BB92D /* CharacterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterModel.swift; sourceTree = "<group>"; };
 		A753A39A2A191099002BB92D /* LocationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationModel.swift; sourceTree = "<group>"; };
 		A753A39D2A191122002BB92D /* ServiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceManager.swift; sourceTree = "<group>"; };
@@ -53,6 +70,15 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		A73920872A1B882D00ABEE50 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A73920972A1B8E8700ABEE50 /* SDWebImage in Frameworks */,
+				A73920992A1B8F1C00ABEE50 /* Alamofire in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A76E4EB529F5A6FD00315552 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -65,6 +91,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A739208B2A1B882E00ABEE50 /* usg-cekirge-challengeTests */ = {
+			isa = PBXGroup;
+			children = (
+				A739208C2A1B882E00ABEE50 /* usg_cekirge_challengeTests.swift */,
+				A73920932A1B8A1F00ABEE50 /* ApiServiceTests.swift */,
+			);
+			path = "usg-cekirge-challengeTests";
+			sourceTree = "<group>";
+		};
+		A73920952A1B8E8700ABEE50 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		A753A3932A19041B002BB92D /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -129,7 +171,9 @@
 			isa = PBXGroup;
 			children = (
 				A76E4EBA29F5A6FD00315552 /* usg-cekirge-challenge */,
+				A739208B2A1B882E00ABEE50 /* usg-cekirge-challengeTests */,
 				A76E4EB929F5A6FD00315552 /* Products */,
+				A73920952A1B8E8700ABEE50 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -137,6 +181,7 @@
 			isa = PBXGroup;
 			children = (
 				A76E4EB829F5A6FD00315552 /* usg-cekirge-challenge.app */,
+				A739208A2A1B882D00ABEE50 /* usg-cekirge-challengeTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -214,6 +259,28 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		A73920892A1B882D00ABEE50 /* usg-cekirge-challengeTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A73920922A1B882E00ABEE50 /* Build configuration list for PBXNativeTarget "usg-cekirge-challengeTests" */;
+			buildPhases = (
+				A73920862A1B882D00ABEE50 /* Sources */,
+				A73920872A1B882D00ABEE50 /* Frameworks */,
+				A73920882A1B882D00ABEE50 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A739208F2A1B882E00ABEE50 /* PBXTargetDependency */,
+			);
+			name = "usg-cekirge-challengeTests";
+			packageProductDependencies = (
+				A73920962A1B8E8700ABEE50 /* SDWebImage */,
+				A73920982A1B8F1C00ABEE50 /* Alamofire */,
+			);
+			productName = "usg-cekirge-challengeTests";
+			productReference = A739208A2A1B882D00ABEE50 /* usg-cekirge-challengeTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		A76E4EB729F5A6FD00315552 /* usg-cekirge-challenge */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = A76E4ECF29F5A6FF00315552 /* Build configuration list for PBXNativeTarget "usg-cekirge-challenge" */;
@@ -245,6 +312,10 @@
 				LastSwiftUpdateCheck = 1430;
 				LastUpgradeCheck = 1430;
 				TargetAttributes = {
+					A73920892A1B882D00ABEE50 = {
+						CreatedOnToolsVersion = 14.3;
+						TestTargetID = A76E4EB729F5A6FD00315552;
+					};
 					A76E4EB729F5A6FD00315552 = {
 						CreatedOnToolsVersion = 14.3;
 					};
@@ -268,11 +339,19 @@
 			projectRoot = "";
 			targets = (
 				A76E4EB729F5A6FD00315552 /* usg-cekirge-challenge */,
+				A73920892A1B882D00ABEE50 /* usg-cekirge-challengeTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		A73920882A1B882D00ABEE50 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A76E4EB629F5A6FD00315552 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -285,6 +364,15 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		A73920862A1B882D00ABEE50 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A73920942A1B8A1F00ABEE50 /* ApiServiceTests.swift in Sources */,
+				A739208D2A1B882E00ABEE50 /* usg_cekirge_challengeTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A76E4EB429F5A6FD00315552 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -310,6 +398,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		A739208F2A1B882E00ABEE50 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A76E4EB729F5A6FD00315552 /* usg-cekirge-challenge */;
+			targetProxy = A739208E2A1B882E00ABEE50 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		A76E4EC929F5A6FF00315552 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
@@ -322,6 +418,42 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		A73920902A1B882E00ABEE50 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = RZB5WTQ7UH;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.hakanor.usg-cekirge-challengeTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/usg-cekirge-challenge.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/usg-cekirge-challenge";
+			};
+			name = Debug;
+		};
+		A73920912A1B882E00ABEE50 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = RZB5WTQ7UH;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.hakanor.usg-cekirge-challengeTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/usg-cekirge-challenge.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/usg-cekirge-challenge";
+			};
+			name = Release;
+		};
 		A76E4ECD29F5A6FF00315552 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -493,6 +625,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		A73920922A1B882E00ABEE50 /* Build configuration list for PBXNativeTarget "usg-cekirge-challengeTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A73920902A1B882E00ABEE50 /* Debug */,
+				A73920912A1B882E00ABEE50 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		A76E4EB329F5A6FD00315552 /* Build configuration list for PBXProject "usg-cekirge-challenge" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -533,6 +674,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		A73920962A1B8E8700ABEE50 /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A7CCE28229F5F59300C74402 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
+		};
+		A73920982A1B8F1C00ABEE50 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A76E4ED529F5B4A600315552 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
 		A76E4ED629F5B4A600315552 /* Alamofire */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = A76E4ED529F5B4A600315552 /* XCRemoteSwiftPackageReference "Alamofire" */;
