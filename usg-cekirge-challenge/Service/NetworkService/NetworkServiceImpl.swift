@@ -13,9 +13,11 @@ protocol Networking {
     func fetchData(path: String, onSuccess: @escaping (Data) -> (), onError: @escaping (Error) -> ())
 }
 
-//MARK: - ServiceManager
+//MARK: - NetworkServiceImpl
 final class NetworkServiceImpl {
-    static let shared: NetworkServiceImpl = NetworkServiceImpl()
+    init() {
+        
+    }
 }
 
 extension NetworkServiceImpl: Networking {
