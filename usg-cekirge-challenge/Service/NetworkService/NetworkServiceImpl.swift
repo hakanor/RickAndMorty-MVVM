@@ -8,17 +8,21 @@
 import Alamofire
 import Foundation
 
-//MARK: - ServiceManager
-final class ServiceManager {
-    static let shared: ServiceManager = ServiceManager()
+protocol Networking {
+    func fetch<T: Codable>(path: String, onSuccess: @escaping (T) -> (), onError: @escaping (Error) -> ())
 }
 
-extension ServiceManager {
-    func fetch <T> (path: String, onSuccess: @escaping ([T]?) -> (), onError: @escaping (AFError) -> ()) where T: Codable {
-        AF.request(path, encoding: JSONEncoding.default).validate().responseDecodable(of: Response<T>.self) { response in
+//MARK: - ServiceManager
+final class NetworkServiceImpl {
+    static let shared: NetworkServiceImpl = NetworkServiceImpl()
+}
+
+extension NetworkServiceImpl: Networking {
+    func fetch <T> (path: String, onSuccess: @escaping (T) -> (), onError: @escaping (Error) -> ()) where T: Codable {
+        AF.request(path, encoding: JSONEncoding.default).validate().responseDecodable(of: T.self) { response in
             switch response.result {
             case .success(let value):
-                onSuccess(value.results)
+                onSuccess(value)
             case .failure(let error):
                 print("Error (ServiceManager): \(error.localizedDescription)")
                 onError(error)

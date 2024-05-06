@@ -7,7 +7,7 @@
 
 import Foundation
 
-extension Constant {
+struct Constant {
     enum ServiceEndPoint: String {
         
         case BASE_URL = "https://rickandmortyapi.com/api/"
@@ -20,7 +20,7 @@ extension Constant {
         }
         
         static func charactersWithResidentsServiceEndPoint(residentIds: [String]) -> String {
-            "\(BASE_URL.rawValue)character/\(residentIds.joined(separator: ","))"
+            "\(BASE_URL.rawValue)character/\(residentIds.joined(separator: ",")),"
         }
         
         static func locationsServiceEndPoint(page:Int) -> String {
