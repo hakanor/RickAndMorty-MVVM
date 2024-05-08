@@ -6,6 +6,12 @@
 //
 
 struct Response<T: Codable>: Codable {
+    
+    init(info: Response<T>.Info, results: [T]) {
+        self.info = info
+        self.results = results
+    }
+    
     let info: Info
     let results: [T]
     

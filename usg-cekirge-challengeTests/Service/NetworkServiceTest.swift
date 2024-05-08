@@ -10,11 +10,11 @@ import XCTest
 
 class NetworkServiceTests: XCTestCase {
     
-    var networkService: NetworkServiceMock!
+    var networkService: Networking!
     
     override func setUp() {
         super.setUp()
-        networkService = NetworkServiceMock()
+        networkService = NetworkServiceImpl()
     }
     
     override func tearDown() {
@@ -26,15 +26,11 @@ class NetworkServiceTests: XCTestCase {
         // Given
         let url = "https://api.example.com/data"
         let expectation = XCTestExpectation(description: "Fetch data successfully")
-        networkService.mockData = MockCharacter.jsonData
-        networkService.shouldSucceed = true
         
         // When
         networkService.fetch(path: url, onSuccess: { (response: Character) in
             // Then
             XCTAssertNotNil(response)
-            XCTAssertTrue(self.networkService.fetchCalled)
-            XCTAssertEqual(self.networkService.fetchCallsCount, 1)
             expectation.fulfill()
         }) { error in
             XCTFail("Unexpected error: \(error.localizedDescription)")
@@ -54,8 +50,7 @@ class NetworkServiceTests: XCTestCase {
         networkService.fetchData(path: url, onSuccess: { data in
             // Then
             XCTAssertNotNil(data)
-            XCTAssertTrue(self.networkService.fetchDataCalled)
-            XCTAssertEqual(self.networkService.fetchDataCallsCount, 1)
+            
             expectation.fulfill()
         }) { error in
             XCTFail("Unexpected error: \(error.localizedDescription)")
@@ -75,8 +70,6 @@ class NetworkServiceTests: XCTestCase {
             XCTFail("Unexpected success: should fail")
         }) { error in
             // Then
-            XCTAssertTrue(self.networkService.fetchCalled)
-            XCTAssertEqual(self.networkService.fetchCallsCount, 1)
             XCTAssertNotNil(error)
             expectation.fulfill()
         }
@@ -89,15 +82,15 @@ class NetworkServiceTests: XCTestCase {
         // Given
         let url = "https://api.example.com/invalidpath"
         let expectation = XCTestExpectation(description: "Fetch should fail")
-        networkService.shouldSucceed = false
+        
         
         // When
         networkService.fetchData(path: url, onSuccess: { data in
             XCTFail("Unexpected success: should fail")
         }) { error in
             // Then
-            XCTAssertTrue(self.networkService.fetchDataCalled)
-            XCTAssertEqual(self.networkService.fetchDataCallsCount, 1)
+            
+            
             XCTAssertNotNil(error)
             expectation.fulfill()
         }

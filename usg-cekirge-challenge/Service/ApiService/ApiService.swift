@@ -11,7 +11,6 @@ import Alamofire
 protocol ApiService {
     func fetchCharacters(onSuccess: @escaping ([Character]) -> Void, onError: @escaping (Error) -> Void)
     func fetchCharactersByResidents(residents: [String],onSuccess: @escaping ([Character]) -> Void, onError: @escaping (Error) -> Void)
-    func fetchSingleCharacter(charId: String, onSuccess: @escaping (Character) -> Void, onError: @escaping (Error) -> Void)
     func fetchLocations(page:Int, onSuccess: @escaping ([Location]) -> Void, onError: @escaping (Error) -> Void)
 }
 
@@ -26,14 +25,6 @@ final class ApiServiceImpl: ApiService {
     func fetchCharacters(onSuccess: @escaping ([Character]) -> Void, onError: @escaping (Error) -> Void) {
         networkService.fetch(path: Constant.ServiceEndPoint.charactersServiceEndPoint()) { (response: Response<Character>) in
             onSuccess(response.results)
-        } onError: { error in
-            onError(error)
-        }
-    }
-    
-    func fetchSingleCharacter(charId: String, onSuccess: @escaping (Character) -> Void, onError: @escaping (Error) -> Void) {
-        networkService.fetch(path: Constant.ServiceEndPoint.singleCharacterServiceEndPoint(charId: charId)) { (response: Character) in
-            onSuccess(response)
         } onError: { error in
             onError(error)
         }
