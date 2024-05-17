@@ -5,8 +5,6 @@
 //  Created by Hakan Or on 20.05.2023.
 //
 
-import Foundation
-
 struct Character: Codable {
     let id: Int
     let name: String
@@ -30,9 +28,4 @@ struct Character: Codable {
         let name: String
         let url: String
     }
-}
-
-struct Response<T: Codable>: Codable {
-    let info: Info
-    let results: [T]
 }

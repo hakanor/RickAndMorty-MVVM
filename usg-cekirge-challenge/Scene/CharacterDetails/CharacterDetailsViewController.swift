@@ -10,8 +10,7 @@ import SDWebImage
 
 class CharacterDetailsViewController: UIViewController {
     //MARK: -Properties
-    private let character: Character
-    private var detailsArray: [(key: String, value: String)] = []
+    var viewModel: CharacterDetailsViewModelInterface
     
     //MARK: -Subviews
     private lazy var backButton: UIButton = {
@@ -21,7 +20,7 @@ class CharacterDetailsViewController: UIViewController {
         button.backgroundColor = .clear
         button.setImage(image, for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.addTarget(self, action: #selector(handleBack), for: .touchUpInside)
+        button.addTarget(self, action: #selector(handleBackButton), for: .touchUpInside)
         return button
     }()
     
@@ -56,10 +55,10 @@ class CharacterDetailsViewController: UIViewController {
     }()
     
     // MARK: - Initialization
-    init(character: Character) {
-        self.character = character
+    init(viewModel: CharacterDetailsViewModel) {
+        self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
-        self.setupArray()
+        viewModel.delegate = self
     }
     
     required init?(coder: NSCoder) {
@@ -72,12 +71,12 @@ class CharacterDetailsViewController: UIViewController {
         navigationItem.leftBarButtonItem = UIBarButtonItem(customView: backButton)
         configureUI()
         configureStackView()
-        fetchCharacterImage()
+        viewModel.fetchCharacterImage()
     }
     
     // MARK: - Helper Functions
     private func configureUI(){
-        self.title = self.character.name
+        self.title = self.viewModel.character.name
         view.backgroundColor = .white
         [scrollView] .forEach(view.addSubview(_:))
         
@@ -105,7 +104,7 @@ class CharacterDetailsViewController: UIViewController {
     }
     
     private func configureStackView(){
-        for detail in self.detailsArray {
+        for detail in self.viewModel.detailsArray {
             
             let keyLabel = UILabel()
             keyLabel.text = detail.key
@@ -131,37 +130,19 @@ class CharacterDetailsViewController: UIViewController {
         }
     }
     
-    private func setupArray(){
-        detailsArray.append(("Status:", self.character.status))
-        detailsArray.append(("Specy:", self.character.species))
-        detailsArray.append(("Gender:", self.character.gender))
-        detailsArray.append(("Origin:", self.character.origin.name))
-        detailsArray.append(("Location:", self.character.location.name))
-        var episodeString = ""
-        let episodeNumbers = character.episode.compactMap { $0.components(separatedBy: "/").last }
-        for episode in episodeNumbers {
-            episodeString += episode + " "
-        }
-        detailsArray.append(("Episodes:", episodeString))
-        
-        let dateString = self.character.created
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
-        guard let date = dateFormatter.date(from: dateString) else { return }
-        dateFormatter.dateFormat = "dd MMMM yyyy, HH:mm:ss"
-        let resultString = dateFormatter.string(from: date)
-        detailsArray.append(("Created at:", resultString))
-    }
-    
-    // MARK: - API
-    private func fetchCharacterImage() {
-        let url = URL(string: self.character.image)
-        self.characterImage.sd_setImage(with: url,completed: nil)
-    }
-    
     // MARK: -Selectors {
-    @objc private func handleBack(){
+    @objc private func handleBackButton(){
         self.dismiss(animated: true, completion: nil)
     }
+}
+
+extension CharacterDetailsViewController: CharacterDetailsViewModelDelegate {
+    func didFetchImageFailed(error: Error) {
+        print(error)
+        // handle error here - show alert
+    }
     
+    func didFetchCharacterImage(data: Data) {
+        self.characterImage.image = UIImage(data: data)
+    }
 }

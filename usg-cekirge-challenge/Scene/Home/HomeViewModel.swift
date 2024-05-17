@@ -15,11 +15,23 @@ protocol HomeViewModelDelegate: AnyObject {
     func onError(error: Error)
 }
 
-final class HomeViewModel {
+protocol HomeViewModelInterface {
+    var delegate: HomeViewModelDelegate? { get set }
+    var characters: [Character] { get }
+    var locations: [Location] { get }
+    
+    func fetchLocations()
+    func fetchCharacters()
+    func fetchCharactersForLocation(location: Location)
+    func fetchCharactersForLocation(at index: Int)
+}
+
+final class HomeViewModel: HomeViewModelInterface {
     // MARK: - Properties
     var locations: [Location] = []
     var characters: [Character] = []
-    var currentPage: Int = 1
+    
+    private var currentPage: Int = 1
     
     private let apiService: ApiService
     weak var delegate: HomeViewModelDelegate?
@@ -29,22 +41,23 @@ final class HomeViewModel {
     }
     
     func fetchLocations() {
-        apiService.fetchLocations(page: currentPage) { locations in
-            if let locations = locations {
+        if currentPage > 1 {
+            fetchMoreLocations()
+        } else {
+            apiService.fetchLocations(page: currentPage) { locations in
                 self.locations = locations
                 self.delegate?.didFetchLocations()
+            } onError: { error in
+                self.delegate?.onError(error: error)
             }
-        } onError: { error in
-            self.delegate?.onError(error: error)
         }
+        currentPage += 1
     }
     
     func fetchCharacters() {
         apiService.fetchCharacters { characters in
-            if let characters = characters {
-                self.characters = characters
-                self.delegate?.didFetchCharacters()
-            }
+            self.characters = characters
+            self.delegate?.didFetchCharacters()
         } onError: { error in
             self.delegate?.onError(error: error)
         }
@@ -53,18 +66,16 @@ final class HomeViewModel {
     func fetchCharactersForLocation(location: Location) {
         let residents = location.residents
         apiService.fetchCharactersByResidents(residents: residents) { characters in
-            if let characters = characters {
-                self.characters = characters
-                self.delegate?.didFetchCharactersForLocation()
-            }
+            self.characters = characters
+            self.delegate?.didFetchCharactersForLocation()
         } onError: { error in
             self.delegate?.onError(error: error)
         }
     }
     
-    func fetchMoreLocations() {
+    private func fetchMoreLocations() {
         apiService.fetchLocations(page: currentPage) { [weak self] locations in
-            guard let self = self, let locations = locations else { return }
+            guard let self = self else { return }
             self.locations.append(contentsOf: locations)
             self.delegate?.didFetchMoreLocations()
         } onError: { error in
@@ -72,30 +83,15 @@ final class HomeViewModel {
         }
     }
     
-    func didSelectLocation(at index: Int) {
+    func fetchCharactersForLocation(at index: Int) {
         let location = locations[index]
         let residents = location.residents
-        switch residents.count {
-        case 0:
-            self.characters = []
-            delegate?.didFetchCharactersForLocation()
-        case 1:
-            let charId = residents.compactMap { $0.components(separatedBy: "/").last }.first ?? ""
-            apiService.fetchSingleCharacter(charId: charId) { [weak self] character in
-                guard let self = self else { return }
-                self.characters = character ?? []
-                self.delegate?.didFetchCharactersForLocation()
-            } onError: { [weak self] error in
-                self?.delegate?.onError(error: error)
-            }
-        default:
-            apiService.fetchCharactersByResidents(residents: residents) { [weak self] characters in
-                guard let self = self else { return }
-                self.characters = characters ?? []
-                self.delegate?.didFetchCharactersForLocation()
-            } onError: { [weak self] error in
-                self?.delegate?.onError(error: error)
-            }
+        apiService.fetchCharactersByResidents(residents: residents) { [weak self] characters in
+            guard let self = self else { return }
+            self.characters = characters
+            self.delegate?.didFetchCharactersForLocation()
+        } onError: { [weak self] error in
+            self?.delegate?.onError(error: error)
         }
     }
 }

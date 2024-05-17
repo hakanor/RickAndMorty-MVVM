@@ -10,7 +10,7 @@ import UIKit
 class HomeViewController: UIViewController {
 
     // MARK: - Properties
-    private var homeViewModel: HomeViewModel!
+    private var viewModel: HomeViewModelInterface!
     
     // MARK: - Subviews
     private lazy var logo: UIImageView = {
@@ -24,6 +24,10 @@ class HomeViewController: UIViewController {
     private lazy var tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .plain)
         tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.showsVerticalScrollIndicator = false
+        tableView.showsHorizontalScrollIndicator = false
+        tableView.separatorStyle = .none
+        tableView.contentInset = UIEdgeInsets(top: 10, left: 0, bottom: 0, right: 0)
         return tableView
     }()
     
@@ -44,10 +48,10 @@ class HomeViewController: UIViewController {
         configureUI()
         configureTableView()
         configureCollectionView()
-        homeViewModel = HomeViewModel(apiService: ApiService.shared)
-        homeViewModel.delegate = self
-        homeViewModel.fetchLocations()
-        homeViewModel.fetchCharacters()
+        viewModel = HomeViewModel(apiService: ApiServiceImpl())
+        viewModel.delegate = self
+        viewModel.fetchLocations()
+        viewModel.fetchCharacters()
     }
     
     // MARK: - Helper Functions
@@ -67,10 +71,6 @@ class HomeViewController: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
         tableView.register(HomeTableViewCell.self, forCellReuseIdentifier: "cell")
-        tableView.showsVerticalScrollIndicator = false
-        tableView.showsHorizontalScrollIndicator = false
-        tableView.separatorStyle = .none
-        tableView.contentInset = UIEdgeInsets(top: 10, left: 0, bottom: 0, right: 0  )
     }
     
     private func configureCollectionView(){
@@ -86,16 +86,18 @@ class HomeViewController: UIViewController {
 extension HomeViewController: UITableViewDataSource, UITableViewDelegate{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! HomeTableViewCell
-        cell.configureCell(character: homeViewModel.characters[indexPath.row])
+        cell.configureCell(character: viewModel.characters[indexPath.row])
         return cell
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return homeViewModel.characters.count
+        return viewModel.characters.count
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let vc = CharacterDetailsViewController(character: homeViewModel.characters[indexPath.row])
+        let character = viewModel.characters[indexPath.row]
+        let viewModel = CharacterDetailsViewModel(character: character)
+        let vc = CharacterDetailsViewController(viewModel: viewModel)
         let nav = UINavigationController(rootViewController: vc)
         nav.modalPresentationStyle = .fullScreen
         present(nav,animated: true,completion: nil)
@@ -105,47 +107,54 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate{
 // MARK: - CollectionView DataSource and Delegate
 extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        homeViewModel.locations.count
+        viewModel.locations.count
     }
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         let lastRowIndex = collectionView.numberOfItems(inSection: 0) - 1
         if indexPath.row == lastRowIndex {
-            homeViewModel.currentPage += 1
-            homeViewModel.fetchMoreLocations()
+            viewModel.fetchLocations()
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "collectioncell", for: indexPath) as! HomeCollectionViewCell
-        cell.setCollectionViewCellLabel(location: homeViewModel.locations[indexPath.row])
+        cell.setCollectionViewCellLabel(location: viewModel.locations[indexPath.row])
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        homeViewModel.didSelectLocation(at: indexPath.row)
+        viewModel.fetchCharactersForLocation(at: indexPath.row)
     }
 }
 
 extension HomeViewController: HomeViewModelDelegate{
     func didFetchLocations() {
         print("didFetchLocations")
-        self.collectionView.reloadData()
+        DispatchQueue.main.async {
+            self.collectionView.reloadData()
+        }
     }
     
     func didFetchCharacters() {
         print("didFetchCharacters")
-        self.tableView.reloadData()
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
     }
     
     func didFetchCharactersForLocation() {
         print("didFetchCharactersForLocation")
-        self.tableView.reloadData()
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
     }
     
     func didFetchMoreLocations() {
         print("didFetchMoreLocations")
-        self.collectionView.reloadData()
+        DispatchQueue.main.async {
+            self.collectionView.reloadData()
+        }
     }
     
     func onError(error: Error) {
